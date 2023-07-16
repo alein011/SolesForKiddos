@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block content %}
+
+<div class="container">
+
+    <header class="container">
+        <br>
+      <h1>Help Center</h1>
+      <br>
+    </header>
+
+    <div class="row">
+        <div class="col-md-3">
+            <ul class="list-group text-md-center">
+                <li class="list-group-item"><a class="nav-link" href="#basics">Products</a></li>
+                <li class="list-group-item"><a class="nav-link" href="#account">Payment Methods</a></li>
+                <li class="list-group-item"><a class="nav-link" href="#delivery">Logistics</a></li>
+                <li class="list-group-item"><a class="nav-link" href="#basics">Order Tracking</a></li>
+                <li class="list-group-item"><a class="nav-link" href="#mobile">Shipping</a></li>
+                <li class="list-group-item"><a class="nav-link" href="#privacy">Return and Refund</a></li>
+                
+            </ul>
+        </div>
+
+        
+
+        <div class="col-md-8 p-md-0 p-sm-2">
+            <a class="faq-title"><h2>Basics</h2></a>
+            <div id="accordion" class="myaccordion container">
+                <div class="card">
+                    <div class="card-header" id="headingOne">
+                        <h2 class="mb-0">
+                            <button class="d-flex align-items-center justify-content-between btn btn-link collapsed" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                                Home
+                            </button>
+                        </h2>
+                    </div>
+
+                    <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
+                        <div class="card-body">
+                            <ul>
+                                <li>Computer Science</li>
+                                <li>Economics</li>
+                                <li>Sociology</li>
+                                <li>Nursing</li>
+                                <li>English</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
