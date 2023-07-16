@@ -1,0 +1,20 @@
+{% autoescape off %}
+
+Hi {{user.first_name}},
+
+YOUR ORDER HAS BEEN RECIEVED
+
+        Delivery Details
+Order Number: {{order.order_number}}
+Name: {{ order.full_name }}
+Email: {{ order.email }}
+Phone: {{ order.phone }}
+Order Place: {{ order.created_at }}
+Deliver to: {{ order.full_address }}
+
+Total: P {{ order.order_total }}
+
+Please expect your order to arrive within the advised expected time of arrival.
+We wish you enjoy shopping with us and hope to see you again real soon!
+
+{% endautoescape %}

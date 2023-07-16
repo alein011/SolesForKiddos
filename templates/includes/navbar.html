@@ -1,0 +1,176 @@
+{% load static %}
+
+<header class="section-header ">
+    <nav class="navbar p-sm-0 navbar-expand-sm navbar-light border-bottom">
+    <div class="container-fluid">
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTop4" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarTop4">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item dropdown">
+                 <a href="#" class="nav-link">   About Us </a>
+                
+            </li>
+            <li class="nav-item dropdown">
+                <a href="#" class="nav-link"> Privacy Policy </a>
+            </li>
+        </ul>
+        <ul class="navbar-nav">
+            <li><a href="#" class="nav-link"> <i class="fa fa-envelope"></i>  solesforkiddos@gmail.com </a></li>
+            
+        </ul> <!-- list-inline //  -->
+      </div> <!-- navbar-collapse .// -->
+    </div> <!-- container //  -->
+    </nav>
+
+    <nav class="navbar navbar-expand-md navbar-light border-bottom mt-2 " style="top: -6px;">
+            <div class="container-fluid">
+                
+
+                    <div class="d-flex justify-content-start align-content-center col-4"> 
+                        <a href="{% url 'home' %}" class="brand-wrap ml-3 mr-1">
+                            <img class="logo" src="{% static './images/small-pink-logo.png' %}">
+                        </a> <!-- brand-wrap.// -->
+
+                        <div class="category-wrap dropdown d-inline-block ml-2">
+                            <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown"> 
+                                <i class="fa fa-bars"></i> ALL CATEGORIES
+                            </button>
+                            <div class="dropdown-menu">
+                                <a class="dropdown-item" href="{% url 'store' %}">All Products</a>
+                                {% for category in links %}
+                                <a class="dropdown-item" href="{{ category.get_url }}">{{ category.category_name }}</a>
+                                {% endfor %}
+                            </div>
+                        </div>  <!-- category-wrap.// -->
+
+                    </div>
+                
+    
+                    
+                        <ul class="nav navbar justify-content-around">
+                            <li class="nav-item ">
+                                <a href="{% url 'home' %}" class="nav-link dropdown-toggle font-weight-bolder" data-toggle="dropdown">HOME</a>
+                                
+                                <div class="dropdown-menu">
+                                
+                                <div class="d-md-flex align-items-start justify-content-start pt-2 pb-2 pl-2 pr-2">
+  
+                                    <div class="pr-3">   
+                                    <a class="dropdown-item font-weight-bold" href="{% url 'store' %}">All Products</a>
+                                    {% for category in links %}
+                                    <a class="dropdown-item" href="{{ category.get_url }}">{{ category.category_name }}</a>
+                                    {% endfor %}
+                                    </div>
+                                                                 
+                                    <div class="pr-3">
+                                    <a class="dropdown-item font-weight-bold" href="{% url 'products_by_gender' gender_slug='girls' %}" class="nav-link">
+                                        All Girls' Shoes
+                                    </a>
+                                    {% for category in links %}
+                                    <a class="dropdown-item" href="{{ category.get_url }}">{{ category.category_name }}</a>
+                                    {% endfor %}
+                                    </div>
+                                                                  
+                                    <div class="pr-3">
+                                        <a class="dropdown-item font-weight-bold" href="{% url 'products_by_gender' gender_slug='boys' %}" class="nav-link">
+                                            All Boys' Shoes
+                                        </a>
+                                        {% for category in links %}
+                                        <a class="dropdown-item" href="{{ category.get_url }}">{{ category.category_name }}</a>
+                                        {% endfor %}
+                                    </div>
+
+                                    <div class="pr-3">
+                                        <a class="dropdown-item font-weight-bold" href="{% url 'age' %}" class="nav-link">
+                                            Shop by Age
+                                        </a>
+                                        {% for age in ages %}
+                                        <a class="dropdown-item" href="{{ age.get_url }}">{{ age.age }}</a>
+                                        {% endfor %}
+                                        <br>
+                                        <a class="dropdown-item font-weight-bold" href="{% url 'products_by_gender' gender_slug='boys' %}" class="nav-link">
+                                            Shop by Size
+                                        </a>
+                                        {% for age in ages %}
+                                        <a class="dropdown-item" href="{{ category.get_url }}">{{ age.age }}</a>
+                                        {% endfor %}
+                                    </div>
+
+                                    <div class="pr-3">
+                                        <a class="dropdown-item font-weight-bold" href="{% url 'products_by_gender' gender_slug='boys' %}" class="nav-link">
+                                            Shop by Brands
+                                        </a>
+                                        <a class="dropdown-item" href="{% url 'brand' %}">All Brands</a>
+                                        {% for brand in brands %}
+                                        <a class="dropdown-item" href="{% url 'products_by_brand' brand.slug %}"> {{ brand.brand_name }}</a>
+                                        {% endfor %}
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="nav-item">
+                                <a href="{% url 'store' %}" class="nav-link dropdown-toggle font-weight-bolder">STORE</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="{% url 'products_by_gender' gender_slug='girls' %}" class="nav-link dropdown-toggle font-weight-bolder">GIRLS</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="{% url 'products_by_gender' gender_slug='boys' %}" class="nav-link dropdown-toggle font-weight-bolder">BOYS</a>
+                            </li>
+                            
+                        </ul>
+                    
+                        <div class="d-flex justify-content-end align-items-center col-4">
+                    
+                            {% if user.id is None %}
+
+                            <form action="{% url 'search' %}" class="search " method='GET'>
+                                <div class=" input-group w-55">
+                                    <input type="text" class="form-control" style="width:50%;" placeholder="Search" name="keyword">
+                                    
+                                    <div class="input-group-append">
+                                    <button class="btn btn-primary" type="submit">
+                                        <i class="fa fa-search"></i>
+                                    </button>
+                                    </div>
+                                </div>
+                            </form> <!-- search-wrap .end// -->
+
+                            <a type="button" href="{% url 'login' %}" class="col-2 btn btn-outline-primary btn-block btn-md ml-1 my-1">Sign in</a>
+                            <a type="button" href="{% url 'register' %}" class="col-2 btn btn-primary btn-block text-white btn-md my-1 ml-2"> Register</a>
+
+                            {% else %}
+
+                            <form action="{% url 'search' %}" class="search " method='GET'>
+                                <div class="input-group w-100">
+                                    <input type="text" class="form-control" style="width:60%;" placeholder="Search" name="keyword">
+                                    
+                                    <div class="input-group-append">
+                                    <button class="btn btn-primary" type="submit">
+                                        <i class="fa fa-search"></i>
+                                    </button>
+                                    </div>
+                                </div>
+                            </form> <!-- search-wrap .end// -->
+                            <a href="{% url 'dashboard' %}" class="widget-header ml-5">
+                                <div class="icon icon-sm rounded-circle"><i class="fas fa-user"></i></div>
+                            </a>
+
+                            {% endif %}
+
+                            <a href="{% url 'cart' %}" class="widget-header">
+                                <div class="icon icon-sm rounded-circle"><i class="fas fa-heart"></i></div> 
+                                <span class="badge badge-pill badge-danger notify"> {{ cart_count }} </span>
+                            </a>
+                            
+                            <a href="{% url 'cart' %}" class="widget-header ml-2 mr-5">
+                                <div class="icon icon-sm rounded-circle"><i class="fas fa-shopping-cart"></i></div> 
+                                <span class="badge badge-pill badge-danger notify"> {{ cart_count }} </span>
+                            </a>
+                        </div> <!-- widgets-wrap.// -->
+            </div> <!-- container.// -->
+    </nav>
+    </header> <!-- section-header.// -->
+
+    

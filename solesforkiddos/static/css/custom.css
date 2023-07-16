@@ -1,0 +1,189 @@
+/* Hide Radio button */
+.rate > input{
+  display: none;
+}
+
+.rate{
+  display: inline-block;;
+  border: 0;
+}
+
+.rate > label{
+  float: right;
+}
+
+/* Showing the stars */
+.rate > label:before{
+  display: inline-block;
+  font-size: 1.1rem;
+  font-family: FontAwesome;
+  content: "\f005";
+  margin:0;
+  padding:0.3rem .2rem;
+  cursor: pointer;
+}
+
+/* Half star */
+.rate .half:before{
+  content: "\f089";
+  position: absolute;
+  padding-right: 0;
+}
+
+/* Click and hover */
+input:checked ~ label, label:hover ~ label{
+  color: #ffb503;
+}
+
+/* hover hightlight */
+input:checked + label:hover, input:checked ~ label:hover,input:checked ~ label:hover ~ label,
+label:hover ~ input:checked ~ label{
+  color: #cc9000;
+}
+
+.rating-star i{
+  color: #ffb503 !important;
+}
+
+ul.thumb{
+  margin:0 auto;
+  padding: 0;
+  float: left;
+}
+ul.thumb li{
+  list-style: none;
+  margin: 10px;
+}
+ul.thumb li img{
+  width: 80px;
+  height: 80px;
+  border: 1px solid grey;
+}
+
+.custom-icon-color {
+  color: black;
+}
+
+
+.btn-primary {
+  color: #fff;
+  background-color: #f90093;
+  border-color: #f90093;
+}
+
+.btn-primary:hover {
+  color: #fff;
+  background-color: #ff5ca5;
+  border-color: #ff5ca5;
+}
+.btn-primary:not(:disabled):not(.disabled):active, .btn-primary:not(:disabled):not(.disabled).active, .show > .btn-primary.dropdown-toggle {
+  color: #fff;
+  background-color: #f90093;
+  border-color: #f90093;
+}
+
+.btn-outline-primary {
+  color: #212529;
+  background-color: #fff;
+  border-color: #f90093;
+}
+.btn-outline-primary:hover {
+  color: #212529;
+  background-color: #ffd0e5;
+  border-color: #ffd0e5;
+}
+.btn-outline-primary:not(:disabled):not(.disabled):active, .btn-outline-primary:not(:disabled):not(.disabled).active, .show > .btn-outline-primary.dropdown-toggle {
+  color: #212529;
+  background-color: #ffa2cb;
+  border-color: #ffa2cb;
+}
+
+.form-control:focus {
+  color: #495057;
+  background-color: #fff;
+  border-color: #ffd0e5;
+  outline: 0;
+  box-shadow: 0 0 0 0.2rem #ffd0e5ba;
+}
+
+a:hover {
+  color: #f90093;
+}
+
+.widget-header .icon i:hover {
+  color: #f90093;
+}
+
+.dropdown-item:hover, .dropdown-item:focus {
+  color: #16181b;
+  text-decoration: none;
+  background-color: #F8E8EE;
+}
+
+.dropdown-item.active, .dropdown-item:active {
+  color: #fff;
+  text-decoration: none;
+  background-color: #ff5ca5;
+}
+
+a.nav-link{
+  position: relative;
+}
+
+a.nav-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  height: 3px;
+  width: 100%;
+  background-color: #f90093;
+  border-radius: 40px;
+  transition: transform 0.4s;
+  transform: scaleX(0);
+  transform-origin: right;
+
+}
+
+a.nav-link:active::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  height: 3px;
+  width: 100%;
+}
+
+.nav-item .nav-link:hover::after {
+  transform-origin: left;
+  transform: scaleX(1);
+}
+
+.nav-item .nav-link:hover {
+  color: #f90093;
+}
+
+.nav-item .nav-link:active::after {
+  color: #f90093;
+  width: 100%;
+}
+
+.nav-pills .nav-link.active,
+.nav-pills .show > .nav-link {
+  color: #f90093;
+  background-color: #f9009100;
+  
+}
+
+.card-header .title{
+  color: #f90093;
+}
+
+
+
+
+
+
+
+
+
