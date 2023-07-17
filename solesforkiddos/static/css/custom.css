@@ -179,6 +179,10 @@ a.nav-link:active::after {
   color: #f90093;
 }
 
+.faq-question:hover {
+  color: #f90093;
+}
+
 
 
 
