@@ -1,6 +1,6 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.urls import reverse
-from .models import Product, ReviewRating, ProductGallery, FAQS, faq_topic
+from .models import Product, ReviewRating, ProductGallery, FAQS, faq_topic, Policy
 from category.models import Age, Brand, Category
 from carts.models import CartItem
 from django.db.models import Q
@@ -224,3 +224,21 @@ def faq_search(request):
     }
     
     return render(request, 'store/faq.html', context)
+
+def policy(request, policy_slug=None):
+    policies = Policy.objects.all()
+    policy_indiv = None
+    
+    if policy_slug:
+        policy_indiv = get_object_or_404(Policy, slug=policy_slug)
+    else:
+        policy_indiv = Policy.objects.all().order_by('title')
+        return render(request, 'store/policy.html', context)
+    
+    context = {
+        'policies': policies,
+        'policy_indiv': policy_indiv,
+    }
+    
+    return render(request, 'store/policy_indiv.html', context)
+

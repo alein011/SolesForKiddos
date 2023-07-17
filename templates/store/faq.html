@@ -18,7 +18,8 @@
             <ul class="list-group text-md-center pb-5 pt-2 sticky-top">
                 {% for topic in topics %}
                 <li class="list-group-item"><a class="nav-link" href="{% if request.path == '/store/faq/' %}#{{ topic.title }}{% else %}{% url 'faq' %}{% endif %}">{{ topic.title }}</a></li>
-                {% endfor %}             
+                {% endfor %}      
+                <li class="list-group-item"><a class="nav-link" href="{% url 'policy' %}">General Policies</a></li>       
             </ul>
         </div>
 

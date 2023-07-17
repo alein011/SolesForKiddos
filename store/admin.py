@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Product, Variation, ReviewRating, ProductGallery, FAQS, faq_topic
+from .models import Product, Variation, ReviewRating, ProductGallery, FAQS, faq_topic, Policy
 import admin_thumbnails
 
 @admin_thumbnails.thumbnail('image')
@@ -17,11 +17,16 @@ class VariationAdmin(admin.ModelAdmin):
     list_editable = ('is_active',)
     list_filter = ('product', 'variation_category', 'variation_value')
 
+class PolicyAdmin(admin.ModelAdmin):
+    list_display = ('title', 'slug')
+    prepopulated_fields = {'slug': ('title',)}
+    
 admin.site.register(Product, ProductAdmin)
 admin.site.register(Variation, VariationAdmin)
 admin.site.register(ReviewRating)
 admin.site.register(ProductGallery)
 admin.site.register(FAQS)
 admin.site.register(faq_topic)
+admin.site.register(Policy, PolicyAdmin)
 
 

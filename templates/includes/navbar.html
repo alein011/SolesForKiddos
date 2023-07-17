@@ -20,7 +20,39 @@
             </li>
         </ul>
         <ul class="navbar-nav">
-            <li><a href="#" class="nav-link"> <i class="fa fa-envelope"></i>  solesforkiddos@gmail.com </a></li>
+        
+            <div class=" col">
+            <!-- Facebook -->
+
+            <a class="icon icon-circle m-1" role="button">
+                <i class="fab fa-facebook-f"></i>
+            </a>
+            
+
+            <!-- Twitter -->
+            <a
+               class="btn btn-outline-secondary btn-floating m-1"
+               class="text-white"
+               role="button"
+               ><i class="fab fa-twitter"></i
+              ></a>
+
+            <!-- Google -->
+            <a
+               class="btn btn-outline-secondary btn-floating m-1"
+               class="text-white"
+               role="button"
+               ><i class="fab fa-google"></i
+              ></a>
+
+            <!-- Instagram -->
+            <a
+               class="btn btn-outline-secondary btn-floating m-1"
+               class="text-white"
+               role="button"
+               ><i class="fab fa-instagram"></i
+              ></a>
+          </div>
             
         </ul> <!-- list-inline //  -->
       </div> <!-- navbar-collapse .// -->
@@ -31,8 +63,8 @@
             <div class="container-fluid">
                 
 
-                    <div class="d-flex justify-content-start align-content-center col-4"> 
-                        <a href="{% url 'home' %}" class="brand-wrap ml-3 mr-1">
+                    <div class="d-flex justify-content-start align-content-center col-md-4 col-sm-5"> 
+                        <a href="{% url 'home' %}" class="brand-wrap ml-md-3 ml-sm-1 mr-1">
                             <img class="logo" src="{% static './images/small-pink-logo.png' %}">
                         </a> <!-- brand-wrap.// -->
 

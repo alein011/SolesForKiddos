@@ -150,6 +150,10 @@ class ProductGallery(models.Model):
 
 class faq_topic(models.Model):
     title = models.CharField(max_length=200)
+    
+    class Meta:
+        verbose_name = 'faq_topic'
+        verbose_name_plural = 'FAQ Category'
 
     def __str__(self):
         return self.title        
@@ -166,6 +170,26 @@ class FAQS(models.Model):
     status=models.CharField(max_length=10, choices=STATUS, default=True)
     create_at=models.DateTimeField(auto_now_add=True)
     update_at=models.DateTimeField(auto_now=True)
+    
+    class Meta:
+        verbose_name = 'faqs'
+        verbose_name_plural = 'FAQ'
 
     def __str__(self):
         return self.question
+    
+class Policy(models.Model):
+    title = models.CharField(max_length=200)
+    slug = models.CharField(max_length=200)
+    content = RichTextField()
+    
+    class Meta:
+        verbose_name = 'policy'
+        verbose_name_plural = 'policies'
+        
+    def get_url(self):
+            return reverse('indiv_policy', args=[self.slug])
+    
+    def __str__(self):
+        return self.title
+    
