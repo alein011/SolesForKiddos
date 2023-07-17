@@ -1,6 +1,6 @@
 from datetime import datetime, timedelta
 from django.shortcuts import render
-from store.models import Product, ReviewRating
+from store.models import Product, ReviewRating, Banner
 from django.db.models import Q
 
 def home(request):
@@ -13,8 +13,13 @@ def home(request):
     for product in products:
         reviews = ReviewRating.objects.filter(product_id=product.id, status=True)
 
+    banners = Banner.objects.filter(is_active=True)
+    
+    
+    
     context = {
         'products': products,
         'reviews': reviews,
+        'banners': banners
     }
     return render(request, 'home.html', context)

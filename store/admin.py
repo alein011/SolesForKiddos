@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Product, Variation, ReviewRating, ProductGallery, FAQS, faq_topic, Policy
+from .models import Product, Variation, ReviewRating, ProductGallery, FAQS, faq_topic, Policy, Banner
 import admin_thumbnails
 
 @admin_thumbnails.thumbnail('image')
@@ -21,6 +21,9 @@ class PolicyAdmin(admin.ModelAdmin):
     list_display = ('title', 'slug')
     prepopulated_fields = {'slug': ('title',)}
     
+class BannerAdmin(admin.ModelAdmin):
+    list_display = {'id', 'is_active'}
+    
 admin.site.register(Product, ProductAdmin)
 admin.site.register(Variation, VariationAdmin)
 admin.site.register(ReviewRating)
@@ -28,5 +31,6 @@ admin.site.register(ProductGallery)
 admin.site.register(FAQS)
 admin.site.register(faq_topic)
 admin.site.register(Policy, PolicyAdmin)
+admin.site.register(Banner)
 
 

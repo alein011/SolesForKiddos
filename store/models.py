@@ -192,4 +192,12 @@ class Policy(models.Model):
     
     def __str__(self):
         return self.title
+
+class Banner(models.Model):
+    images       = models.ImageField(upload_to='images/banners', max_length=255)
+    title        = models.CharField(max_length=20, blank=True)
+    sub_title    = models.CharField(max_length=20, blank=True)
+    is_active    = models.BooleanField(default=True)
     
+    def __str__(self):
+        return self.title
