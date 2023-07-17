@@ -67,3 +67,7 @@ color: #fff;
 background-color: #F178B1;
 border-color: #F178B1;
 }
+
+.custom-shadow {
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1) !important; /* Adjust the values as per your preference */
+}

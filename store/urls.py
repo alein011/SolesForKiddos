@@ -14,6 +14,7 @@ urlpatterns = [
     path('brand/<str:brand_slug>/', views.brand, name='products_by_brand'),
     path('search/', views.search, name='search'),
     path('faq/', views.faq, name='faq'),
+    path('faq/search', views.faq_search, name='faq_search'),
     
     path('submit_review/<int:product_id>/', views.submit_review, name='submit_review'),
 ] 

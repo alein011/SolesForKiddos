@@ -1,0 +1,67 @@
+.icon {
+    --size: 1em;
+    font-size: var(--size);
+    height: 1em;
+    width: 1em;
+    display: inline-block;
+    color: inherit;
+    fill: currentColor;
+    line-height: 1;
+    flex-shrink: 0;
+    max-width: initial
+}
+
+.icon--3xs {
+    --size: 8px
+}
+
+.icon--2xs {
+    --size: 12px
+}
+
+.icon--xs {
+    --size: 16px
+}
+
+.icon--sm {
+    --size: 24px
+}
+
+.icon--md {
+    --size: 32px
+}
+
+.icon--lg {
+    --size: 48px
+}
+
+.icon--xl {
+    --size: 64px
+}
+
+.icon--2xl {
+    --size: 96px
+}
+
+.icon--3xl {
+    --size: 128px
+}
+
+.icon--is-spinning {
+    animation: icon-spin 1s infinite linear
+}
+
+@keyframes icon-spin {
+    0% {
+        transform: rotate(0deg)
+    }
+
+    100% {
+        transform: rotate(360deg)
+    }
+}
+
+.icon use {
+    color: inherit;
+    fill: currentColor
+}

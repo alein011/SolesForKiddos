@@ -5,6 +5,7 @@ from accounts.models import Account
 from django.db.models import Avg, Count
 from django.core.exceptions import ValidationError
 import itertools
+from ckeditor.fields import RichTextField
 
 # Create your models here.
 
@@ -133,7 +134,7 @@ class ReviewRating(models.Model):
 
     def __str__(self):
         return self.subject
-    
+
     
 
 class ProductGallery(models.Model):
@@ -146,3 +147,25 @@ class ProductGallery(models.Model):
     class Meta:
         verbose_name = 'productgallery'
         verbose_name_plural = 'product gallery'
+
+class faq_topic(models.Model):
+    title = models.CharField(max_length=200)
+
+    def __str__(self):
+        return self.title        
+
+class FAQS(models.Model):
+    STATUS = (
+        ('True', 'True'),
+        ('False', 'False'),
+    )  
+
+    category = models.ForeignKey(faq_topic, default=None, on_delete=models.CASCADE, blank=True, null=True)
+    question = models.CharField(max_length=200)
+    answer = RichTextField()
+    status=models.CharField(max_length=10, choices=STATUS, default=True)
+    create_at=models.DateTimeField(auto_now_add=True)
+    update_at=models.DateTimeField(auto_now=True)
+
+    def __str__(self):
+        return self.question

@@ -1,3 +1,4 @@
+from store.models import faq_topic
 from .models import Category, Brand, Age
 
 def menu_links(request):
@@ -11,3 +12,8 @@ def brand_list(request):
 def age_list(request):
     ages = Age.objects.all()
     return dict(ages=ages)
+
+def category_list(request):
+    topics = faq_topic.objects.all()
+    return dict(topics=topics)
+

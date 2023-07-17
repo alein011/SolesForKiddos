@@ -45,6 +45,14 @@ $(document).ready(function() {
     });
 
     $(document).ready(function() {
+        // Toggle collapse when container is clicked
+        $('.card').on('click', function() {
+          var target = $(this).find('.collapse');
+          $(target).collapse('toggle');
+        });
+      });
+
+    $(document).ready(function() {
         $('#filter-form').submit(function(event) {
             event.preventDefault(); // Prevent form submission
     
@@ -63,6 +71,8 @@ $(document).ready(function() {
             window.location.href = newUrl; // Redirect to the new URL
         });
     });
+
+
       
 
 

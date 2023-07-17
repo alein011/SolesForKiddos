@@ -1,5 +1,6 @@
 from django.shortcuts import render, get_object_or_404, redirect
-from .models import Product, ReviewRating, ProductGallery
+from django.urls import reverse
+from .models import Product, ReviewRating, ProductGallery, FAQS, faq_topic
 from category.models import Age, Brand, Category
 from carts.models import CartItem
 from django.db.models import Q
@@ -187,3 +188,39 @@ def submit_review(request, product_id):
                 data.save()
                 messages.success(request, 'Thank you! Your review has been submitted.')
                 return redirect(url)
+
+def faq(request):
+    
+    faq_topics = faq_topic.objects.all()
+
+    faq_data = []
+    for topic in faq_topics:
+        faqs = FAQS.objects.filter(category=topic)
+        faq_data.append((topic, faqs))
+
+    context = {
+        'faq_data': faq_data,
+    }
+    
+    return render(request, 'store/faq.html', context)
+
+def faq_search(request):
+    if 'keyword' in request.GET:
+        keyword = request.GET['keyword']
+        faq_topics = faq_topic.objects.all()
+        faq_data = []
+        if keyword:
+            for topic in faq_topics:
+                faqs = FAQS.objects.filter(
+                    Q(question__icontains=keyword) | Q(answer__icontains=keyword),
+                    category=topic.id
+                ).order_by('-category')
+                if faqs.exists():
+                    faq_data.append((topic, faqs))
+                
+
+    context = {
+        'faq_data': faq_data,
+    }
+    
+    return render(request, 'store/faq.html', context)

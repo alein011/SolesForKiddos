@@ -33,6 +33,7 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     'jazzmin',
+    'ckeditor',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -45,6 +46,7 @@ INSTALLED_APPS = [
     'carts',
     'orders',
     'admin_honeypot',
+    
 ]
 
 MIDDLEWARE = [
@@ -78,11 +80,24 @@ TEMPLATES = [
                 'category.context_processors.menu_links',
                 'category.context_processors.brand_list',
                 'category.context_processors.age_list',
+                'category.context_processors.category_list',
                 'carts.context_processors.counter',
             ],
         },
     },
 ]
+
+CKEDITOR_CONFIGS = {
+    'default': {
+        # 'toolbar': 'Custom',
+        'width': '461px',
+        'height': 'auto',
+        # 'toolbar_Custom': [
+        #     ['Bold', 'Italic', 'Underline'],
+        #     ['NumberedList', 'BulletedList'],
+        # ],
+    }
+}
 
 WSGI_APPLICATION = 'solesforkiddos.wsgi.application'
 
