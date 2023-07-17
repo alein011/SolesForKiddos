@@ -183,6 +183,10 @@ a.nav-link:active::after {
   color: #f90093;
 }
 
+.alert {
+  margin-bottom: 0;
+}
+
 
 
 
