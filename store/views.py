@@ -1,6 +1,6 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.urls import reverse
-from .models import Product, ReviewRating, ProductGallery, FAQS, faq_topic, Policy
+from .models import Product, ReviewRating, ProductGallery, FAQS, faq_topic, Policy, Banner
 from category.models import Age, Brand, Category
 from carts.models import CartItem
 from django.db.models import Q
@@ -241,4 +241,13 @@ def policy(request, policy_slug=None):
     }
     
     return render(request, 'store/policy_indiv.html', context)
+
+def carousel(request):
+    banners = Banner.objects.all()
+    
+    context = {
+        'banners': banners,
+    }
+    
+    return render(request, 'home.html', context)
 
