@@ -21,37 +21,28 @@
         </ul>
         <ul class="navbar-nav">
         
-            <div class=" col">
-            <!-- Facebook -->
+            <div class="row">
 
-            <a class="icon icon-circle m-1" role="button">
-                <i class="fab fa-facebook-f"></i>
+            <!-- Facebook -->
+            <a class="icon icon-sm rounded-circle btn d-flex justify-content-center align-items-center ">
+                <div class="widget-header"><i class="fab fa-facebook-f"></i></div>
             </a>
-            
 
             <!-- Twitter -->
-            <a
-               class="btn btn-outline-secondary btn-floating m-1"
-               class="text-white"
-               role="button"
-               ><i class="fab fa-twitter"></i
-              ></a>
+            <a class="icon icon-sm rounded-circle btn d-flex justify-content-center align-items-center">
+                <div class="widget-header m-1"><i class="fab fa-twitter"></i></div>
+            </a>
+
 
             <!-- Google -->
-            <a
-               class="btn btn-outline-secondary btn-floating m-1"
-               class="text-white"
-               role="button"
-               ><i class="fab fa-google"></i
-              ></a>
-
+            <a class="icon icon-sm rounded-circle btn d-flex justify-content-center align-items-center">
+                <div class="widget-header"><i class="fab fa-google"></i></div>
+            </a>
+        
             <!-- Instagram -->
-            <a
-               class="btn btn-outline-secondary btn-floating m-1"
-               class="text-white"
-               role="button"
-               ><i class="fab fa-instagram"></i
-              ></a>
+            <a class="icon icon-sm rounded-circle btn d-flex justify-content-center align-items-center">
+                <div class="widget-header"><i class="fab fa-instagram"></i></div>
+            </a>
           </div>
             
         </ul> <!-- list-inline //  -->
@@ -145,7 +136,7 @@
                                 </div>
                             </li>
                             <li class="nav-item">
-                                <a href="{% url 'store' %}" class="nav-link dropdown-toggle font-weight-bolder">STORE</a>
+                                <a href="{% url 'store' %}" class="nav-link dropdown-toggle font-weight-bolder">SHOP</a>
                             </li>
                             <li class="nav-item">
                                 <a href="{% url 'products_by_gender' gender_slug='girls' %}" class="nav-link dropdown-toggle font-weight-bolder">GIRLS</a>
@@ -156,7 +147,7 @@
                             
                         </ul>
                     
-                        <div class="d-flex justify-content-end align-items-center col-4">
+                        <div class="d-flex justify-content-end align-items-center col-4 mr-4">
                     
                             {% if user.id is None %}
 
@@ -199,7 +190,7 @@
                                 <span class="badge badge-pill badge-danger notify"> {{ cart_count }} </span>
                             </a>
                             
-                            <a href="{% url 'cart' %}" class="widget-header ml-2 mr-5">
+                            <a href="{% url 'cart' %}" class="widget-header ml-2">
                                 <div class="icon icon-sm rounded-circle"><i class="fas fa-shopping-cart"></i></div> 
                                 <span class="badge badge-pill badge-danger notify"> {{ cart_count }} </span>
                             </a>
