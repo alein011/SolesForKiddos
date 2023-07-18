@@ -116,7 +116,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'django',
         'USER': 'admin01',
-        'PASSWORD': config("DB_PASSWORD"),
+        'PASSWORD': 'Exol1485.',
         'HOST': 'solesforkiddosdb.postgres.database.azure.com',
         'PORT': '5432',
         'OPTIONS': {"sslmode": "require"},
