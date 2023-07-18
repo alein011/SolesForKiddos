@@ -60,4 +60,4 @@ jobs:
         with:
           app-name: 'solesforkiddos'
           slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_56E747D47DBA4C84A7464F3C8ED69538 }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_5380BFEAC4AF4443ADA60DC10B22CBD5 }}
