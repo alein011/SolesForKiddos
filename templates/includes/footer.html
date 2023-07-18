@@ -42,25 +42,16 @@
                 class="mb-4 mt-0 d-inline-block mx-auto"
                 style="width: 120px; background-color: #f90093; height: 2px"
                 />
-            
-			  <p>
-				<a class="text-secondary">Help Center</a>
-			  </p>
-			  <p>
-				<a class="text-secondary">Payment Methods</a>
-			  </p>
-			  <p>
-				<a class="text-secondary">Logistics</a>
-			  </p>
-			  <p>
-				<a class="text-secondary">Order Tracking</a>
-			  </p>
-			  <p>
-				<a class="text-secondary">Shipping</a>
-			  </p>
-			  <p>
-				<a class="text-secondary">Return and Refund</a>
-			  </p>
+				
+                <p>
+					<a href="{% url 'faq' %}" class="text-secondary">Help Center</a>
+				</p>
+				{% for topic in topics %}
+			  	<p>
+				<a href="{% if request.path == '/store/faq/' %}#{{ topic.title }}{% else %}{% url 'faq' %}{% endif %}" 
+					class="text-secondary">{{topic.title}}</a>
+			  	</p>
+			  {% endfor %} 
 			</div>
 			<!-- Grid column -->
   
@@ -79,13 +70,15 @@
 			  <p>
 				<a class="text-secondary">Size Charts</a>
 			  </p>
-			  <p>
-				<a class="text-secondary">Privacy Policy</a>
-			  </p>
-			  <p>
-				<a class="text-secondary">Terms and Conditions</a>
-			  </p>
-			  <br><br>
+
+			 
+			  {% for policy in policies %}
+			  <p><a class="text-secondary" href="{% url 'indiv_policy' policy_slug=policy.slug%}"> {{ policy.title }} </a></p>
+			  {% endfor %}
+			
+
+
+			  <br>
 			  <div class="col text-md-center text-muted">
 				<i class="fab fa-lg fa-cc-visa"></i>
 				<i class="fab fa-lg fa-cc-paypal"></i>

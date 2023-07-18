@@ -16,7 +16,7 @@ gender_choices = (
 
 age_choices = (
     ('infant-0-2', 'Infant (0 - 2)'),
-    ('toddler-3-5', 'toddler (3 - 5)'),
+    ('toddler-3-5', 'Toddler (3 - 5)'),
     ('little-kids-6-12', 'little kids(6 - 12)')
 )
 
@@ -79,8 +79,12 @@ class Product(models.Model):
         # Automatically set sizes based on age_category
         if self.age_category:
             if self.age_category.age == "Infant (0 - 2 years)":
-                sizes = ["2C", "2.5C", "3C", "3.5C", "4C", "4.5C", "5C", "5.5C", "6C", "6.5C", "7C", "7.5C", "8C"]
-
+                sizes = ["2C", "2.5C", "3C", "3.5C", "4C", "4.5C", "5C", "5.5C", "6C", "6.5C", "7C"]
+            elif self.age_category.age == "Toddler (3 - 5)":
+                sizes = [ "7.5C", "8C", "8.5C", "9C", "9.5C", "10C", "10.5C", "11C", "11.5C", "12C"]
+            else:
+                sizes = ["12.5C", "13C", "13.5C", "1Y", "1.5Y", "2Y", "2.5Y", "3Y", "3.5Y", "4Y", "4.5Y", "5Y", "5.5Y", "6Y"]
+                
                 for size in sizes:
                     Variation.objects.create(product=self, variation_category="size", variation_value=size)
 
@@ -188,7 +192,7 @@ class Policy(models.Model):
         verbose_name_plural = 'policies'
         
     def get_url(self):
-            return reverse('indiv_policy', args=[self.slug])
+        return reverse('indiv_policy', args=[self.slug])
     
     def __str__(self):
         return self.title

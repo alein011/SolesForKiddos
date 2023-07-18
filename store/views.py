@@ -227,20 +227,18 @@ def faq_search(request):
 
 def policy(request, policy_slug=None):
     policies = Policy.objects.all()
-    policy_indiv = None
+    policy_indiv = Policy.objects.get(slug='terms-of-service')
     
     if policy_slug:
         policy_indiv = get_object_or_404(Policy, slug=policy_slug)
-    else:
-        policy_indiv = Policy.objects.all().order_by('title')
-        return render(request, 'store/policy.html', context)
+
     
     context = {
         'policies': policies,
-        'policy_indiv': policy_indiv,
+        'policy_indiv': policy_indiv
     }
     
-    return render(request, 'store/policy_indiv.html', context)
+    return render(request, 'store/policy.html', context)
 
 def carousel(request):
     banners = Banner.objects.all()

@@ -13,10 +13,10 @@
                 
             </li>
             <li class="nav-item dropdown">
-                <a href="#" class="nav-link"> Privacy Policy </a>
+                <a href="{% url 'indiv_policy' policy_slug='privacy-policy' %} " class="nav-link"> Privacy Policy </a>
             </li>
             <li class="nav-item dropdown">
-                <a href="#" class="nav-link"> Terms & Conditions </a>
+                <a href="{% url 'indiv_policy' policy_slug='terms-and-conditions' %}" class="nav-link"> Terms & Conditions </a>
             </li>
         </ul>
         <ul class="navbar-nav">
@@ -77,67 +77,72 @@
                     
                         <ul class="nav navbar justify-content-around">
                             <li class="nav-item ">
-                                <a href="{% url 'home' %}" class="nav-link dropdown-toggle font-weight-bolder" data-toggle="dropdown">HOME</a>
-                                
+                                <a href="{% url 'home' %}" class="nav-link font-weight-bolder">HOME</a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a href="{% url 'store' %}" class="nav-link dropdown-toggle font-weight-bolder" data-toggle="dropdown">SHOP</a>
                                 <div class="dropdown-menu">
                                 
-                                <div class="d-md-flex align-items-start justify-content-start pt-2 pb-2 pl-2 pr-2">
-  
-                                    <div class="pr-3">   
-                                    <a class="dropdown-item font-weight-bold" href="{% url 'store' %}">All Products</a>
-                                    {% for category in links %}
-                                    <a class="dropdown-item" href="{{ category.get_url }}">{{ category.category_name }}</a>
-                                    {% endfor %}
-                                    </div>
-                                                                 
-                                    <div class="pr-3">
-                                    <a class="dropdown-item font-weight-bold" href="{% url 'products_by_gender' gender_slug='girls' %}" class="nav-link">
-                                        All Girls' Shoes
-                                    </a>
-                                    {% for category in links %}
-                                    <a class="dropdown-item" href="{{ category.get_url }}">{{ category.category_name }}</a>
-                                    {% endfor %}
-                                    </div>
-                                                                  
-                                    <div class="pr-3">
-                                        <a class="dropdown-item font-weight-bold" href="{% url 'products_by_gender' gender_slug='boys' %}" class="nav-link">
-                                            All Boys' Shoes
+                                    <div class="d-md-flex align-items-start justify-content-start pt-2 pb-2 pl-2 pr-2">
+      
+                                        <div class="pr-3">   
+                                        <a class="dropdown-item font-weight-bold" href="{% url 'store' %}">All Products</a>
+                                        {% for category in links %}
+                                        <a class="dropdown-item" href="{{ category.get_url }}">{{ category.category_name }}</a>
+                                        {% endfor %}
+                                        </div>
+                                                                     
+                                        <div class="pr-3">
+                                        <a class="dropdown-item font-weight-bold" href="{% url 'products_by_gender' gender_slug='girls' %}" class="nav-link">
+                                            All Girls' Shoes
                                         </a>
                                         {% for category in links %}
                                         <a class="dropdown-item" href="{{ category.get_url }}">{{ category.category_name }}</a>
                                         {% endfor %}
+                                        </div>
+                                                                      
+                                        <div class="pr-3">
+                                            <a class="dropdown-item font-weight-bold" href="{% url 'products_by_gender' gender_slug='boys' %}" class="nav-link">
+                                                All Boys' Shoes
+                                            </a>
+                                            {% for category in links %}
+                                            <a class="dropdown-item" href="{{ category.get_url }}">{{ category.category_name }}</a>
+                                            {% endfor %}
+                                        </div>
+    
+                                        <div class="pr-3">
+                                            <a class="dropdown-item font-weight-bold" href="{% url 'age' %}" class="nav-link">
+                                                Shop by Age
+                                            </a>
+                                            {% for age in ages %}
+                                            <a class="dropdown-item" href="{{ age.get_url }}">{{ age.age }}</a>
+                                            {% endfor %}
+                                            <br>
+                                            <a class="dropdown-item font-weight-bold" href="{% url 'products_by_gender' gender_slug='boys' %}" class="nav-link">
+                                                Shop by Size
+                                            </a>
+                                            {% for age in ages %}
+                                            <a class="dropdown-item" href="{{ category.get_url }}">{{ age.age }}</a>
+                                            {% endfor %}
+                                        </div>
+    
+                                        <div class="pr-3">
+                                            <a class="dropdown-item font-weight-bold" href="{% url 'products_by_gender' gender_slug='boys' %}" class="nav-link">
+                                                Shop by Brands
+                                            </a>
+                                            <a class="dropdown-item" href="{% url 'brand' %}">All Brands</a>
+                                            {% for brand in brands %}
+                                            <a class="dropdown-item" href="{% url 'products_by_brand' brand.slug %}"> {{ brand.brand_name }}</a>
+                                            {% endfor %}
+                                        </div>
                                     </div>
-
-                                    <div class="pr-3">
-                                        <a class="dropdown-item font-weight-bold" href="{% url 'age' %}" class="nav-link">
-                                            Shop by Age
-                                        </a>
-                                        {% for age in ages %}
-                                        <a class="dropdown-item" href="{{ age.get_url }}">{{ age.age }}</a>
-                                        {% endfor %}
-                                        <br>
-                                        <a class="dropdown-item font-weight-bold" href="{% url 'products_by_gender' gender_slug='boys' %}" class="nav-link">
-                                            Shop by Size
-                                        </a>
-                                        {% for age in ages %}
-                                        <a class="dropdown-item" href="{{ category.get_url }}">{{ age.age }}</a>
-                                        {% endfor %}
-                                    </div>
-
-                                    <div class="pr-3">
-                                        <a class="dropdown-item font-weight-bold" href="{% url 'products_by_gender' gender_slug='boys' %}" class="nav-link">
-                                            Shop by Brands
-                                        </a>
-                                        <a class="dropdown-item" href="{% url 'brand' %}">All Brands</a>
-                                        {% for brand in brands %}
-                                        <a class="dropdown-item" href="{% url 'products_by_brand' brand.slug %}"> {{ brand.brand_name }}</a>
-                                        {% endfor %}
-                                    </div>
-                                </div>
                             </li>
-                            <li class="nav-item">
-                                <a href="{% url 'store' %}" class="nav-link dropdown-toggle font-weight-bolder">SHOP</a>
-                            </li>
+
+
+
+
+
                             <li class="nav-item">
                                 <a href="{% url 'products_by_gender' gender_slug='girls' %}" class="nav-link dropdown-toggle font-weight-bolder">GIRLS</a>
                             </li>

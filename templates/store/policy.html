@@ -28,13 +28,35 @@
                         </div>
                     </article> <!-- filter-group  .// -->
                 </div> <!-- card.// -->
+
+                <br>
+
+                <div class="card sticky-top pt-2">
+                    <article class="filter-group ">
+                        <header class="card-header">
+                            <a href="#" data-toggle="collapse" data-target="#collapse_2" aria-expanded="true" class="">
+                                <i class="icon-control fa fa-chevron-down"></i>
+                                <h6 class="title">FAQs</h6>
+                            </a>
+                        </header>
+                        <div class="filter-content collapse show" id="collapse_2" style="">
+                            <div class="card-body">
+                                <ul class="list-menu">
+                                    {% for topic in topics %}
+                                    <li><a href="{% if request.path == '/store/faq/' %}#{{ topic.title }}{% else %}{% url 'faq' %}{% endif %}">{{ topic.title }}</a></li>
+                                    {% endfor %}      
+                                </ul>
+                            </div> <!-- card-body.// -->
+                        </div>
+                    </article> <!-- filter-group  .// -->
+                </div> <!-- card.// -->
                 
             </aside> <!-- col.// -->
 
             <div class="col-md-8 p-md-0 p-sm-2 ">
     
                 <div id="accordion" class="container p-2">
-                    {% if policy_indiv %}
+                    {% if policy_indiv is not None %}
                     <h2 id="{{ policy_indiv.title }}" class="p-2">{{ policy_indiv.title }}</h2>
                     <div class="card shadow m-2 p-5">
                         <h3 id="{{ policy_indiv.title }}" class="justify-content-center text-md-center">{{ policy_indiv.title }}</h3>
@@ -44,6 +66,7 @@
                     </div>
                     {% endif %}
                 </div>
+                
             </div>
             
             </div>
