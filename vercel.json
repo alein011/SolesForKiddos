@@ -1,0 +1,14 @@
+{
+    "builds": [
+      {
+        "src": "solesforkiddos/wsgi.py",
+        "use": "@vercel/python"
+      }
+    ],
+    "routes": [
+      {
+        "src": "/(.*)",
+        "dest": "solesforkiddos/wsgi.py"
+      }
+    ]
+}
